@@ -3,15 +3,23 @@
           <div class="container">
               <div class="row">
                   <div class="col-lg-8">
-                    <posts
-                      :posts="posts"
-                      @loadedPosts="handleLoadedPosts"
-                      :currentPage="currentPage"
-                      :postsPages="postsPages"
-                      :payload="{search:this.search}"
-                      :type="'blog/searchPostsOnly'"
-                      :search="search"
-                    />
+                    <h3 v-if="!posts.length">
+                      {{$getLang('not_found')}}
+                    </h3>
+                    <template v-else>
+                      <h5 class="text-right">
+                        {{$getLang('found')}}: {{postsTotal}}
+                      </h5>
+                      <posts
+                          :posts="posts"
+                          @loadedPosts="handleLoadedPosts"
+                          :currentPage="currentPage"
+                          :postsPages="postsPages"
+                          :payload="{search:this.search}"
+                          :type="'blog/searchPostsOnly'"
+                          :search="search"
+                      />
+                    </template>
                   </div>
 
                   <div class="col-lg-4">

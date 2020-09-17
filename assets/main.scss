@@ -3256,8 +3256,13 @@ h2.heading, h3.heading {
 }
 
 
-.vue-notification-group{
+/*.vue-notification-group{
   width: 100% !important;
+}*/
+@media (max-width: 768px) {
+  .vue-notification-group{
+    width: 100% !important;
+  }
 }
 .vue-notification {
   padding: 10px;
